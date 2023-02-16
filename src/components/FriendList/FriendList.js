@@ -6,12 +6,12 @@ import FriendListItem from './FriendListItem';
 function FriendList({ friends }) {
   return (
     <ListFriend>
-      {friends.map(friend => (
+      {friends.map(({ id, name, isOnline, avatar }) => (
         <FriendListItem
-          key={friend.id}
-          name={friend.name}
-          isOnline={friend.isOnline}
-          avatar={friend.avatar}
+          key={id}
+          name={name}
+          isOnline={isOnline}
+          avatar={avatar}
         />
       ))}
     </ListFriend>
@@ -26,7 +26,7 @@ FriendList.propTypes = {
       isOnline: PropTypes.bool.isRequired,
       avatar: PropTypes.string.isRequired,
     })
-  ),
+  ).isRequired,
 };
 
 export default FriendList;
